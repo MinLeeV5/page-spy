@@ -1,9 +1,9 @@
-import { atom, makeMessage, formatErrorObj } from '@huolala-tech/page-spy-base';
+import { atom, makeMessage, formatErrorObj } from '@lastos/page-spy-base';
 import type {
   SpyConsole,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types/index';
+} from '@lastos/page-spy-types/index';
 import { ErrorHandlerCallback } from 'react-native';
 // @ts-ignore
 import LocalPromise from 'promise/setimmediate/es6-extensions';

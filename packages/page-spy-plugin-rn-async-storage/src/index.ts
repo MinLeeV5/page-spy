@@ -1,16 +1,16 @@
-import type { SocketStoreBase } from '@huolala-tech/page-spy-base/dist/socket-base';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
+import type { SocketStoreBase } from '@lastos/page-spy-base/dist/socket-base';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
 import type {
   SpyStorage,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type {
   Callback,
   MultiCallback,
 } from '@react-native-async-storage/async-storage/lib/typescript/types';
-import { InitConfigBase } from '@huolala-tech/page-spy-base';
+import { InitConfigBase } from '@lastos/page-spy-base';
 
 const descriptor = {
   configurable: true,

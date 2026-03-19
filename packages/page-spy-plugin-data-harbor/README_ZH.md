@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-plugin-data-harbor?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-data-harbor
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-plugin-data-harbor
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-plugin-data-harbor/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-plugin-data-harbor?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-plugin-data-harbor
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-plugin-data-harbor
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-plugin-data-harbor/dist/iife/index.min.js
 
 [English](./README.md) | 中文
 
-# `@huolala-tech/page-spy-plugin-data-harbor`
+# `@lastos/page-spy-plugin-data-harbor`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -19,7 +19,7 @@
 ## 类型定义
 
 ```ts
-import { PageSpyPlugin } from '@huolala-tech/page-spy-types';
+import { PageSpyPlugin } from '@lastos/page-spy-types';
 
 type DataType = 'console' | 'network' | 'system' | 'storage' | 'rrweb-event';
 
@@ -35,7 +35,7 @@ interface DataHarborConfig {
   filename?: () => string;
 
   // 自定义「下载日志数据」行为
-  // (版本要求: @huolala-tech/page-spy-plugin-data-harbor^1.0.6)
+  // (版本要求: @lastos/page-spy-plugin-data-harbor^1.0.6)
   onDownload?: (data: CacheMessageItem[]) => void;
 }
 
@@ -75,8 +75,8 @@ export default DataHarborPlugin;
 
   ```ts
   // 在你的入口文件中（如 "main.ts"）导入
-  import PageSpy from '@huolala-tech/page-spy-browser';
-  import DataHarborPlugin from '@huolala-tech/page-spy-plugin-data-harbor';
+  import PageSpy from '@lastos/page-spy-browser';
+  import DataHarborPlugin from '@lastos/page-spy-plugin-data-harbor';
 
   // 注册插件
   window.$harbor = new DataHarborPlugin(config: DataHarborConfig);

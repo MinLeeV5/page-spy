@@ -5,8 +5,8 @@ import PageSpy, {
   Client,
   psLog,
   SocketStoreBase,
-} from '@huolala-tech/page-spy-mp-base';
-import { SpyClient } from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-mp-base';
+import { SpyClient } from '@lastos/page-spy-types';
 
 declare const uni: MPSDK;
 
@@ -35,7 +35,7 @@ const TOUTIAO_MAP: Record<string, SpyClient.Browser> = {
 if (info.uniPlatform === 'web') {
   browserType = 'unknown';
   psLog.warn(
-    'This package is designed for mini program, please use @huolala-tech/page-spy-browser for web project.',
+    'This package is designed for mini program, please use @lastos/page-spy-browser for web project.',
   );
 } else if (info.uniPlatform === 'mp-toutiao') {
   browserType = TOUTIAO_MAP[info.hostName] || 'mp-toutiao';

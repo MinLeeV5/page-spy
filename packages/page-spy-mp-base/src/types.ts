@@ -1,5 +1,5 @@
-import { OnInitParams } from '@huolala-tech/page-spy-types';
-import { InitConfigBase } from '@huolala-tech/page-spy-base';
+import { OnInitParams } from '@lastos/page-spy-types';
+import { InitConfigBase } from '@lastos/page-spy-base';
 
 export interface AsyncCallback<R = void, E = any> {
   success?: (res: R) => void;

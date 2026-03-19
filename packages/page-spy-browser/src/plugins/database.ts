@@ -1,10 +1,10 @@
-import { DBInfo, DBStoreInfo } from '@huolala-tech/page-spy-types/lib/database';
-import { psLog, makeMessage } from '@huolala-tech/page-spy-base';
+import { DBInfo, DBStoreInfo } from '@lastos/page-spy-types/lib/database';
+import { psLog, makeMessage } from '@lastos/page-spy-base';
 import {
   SpyDatabase,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 import socketStore from '../helpers/socket';
 import { InitConfig } from '../config';
 

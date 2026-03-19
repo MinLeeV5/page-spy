@@ -12,7 +12,7 @@ import {
   addContentTypeHeader,
   getFormattedBody,
   RequestItem,
-} from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-base';
 import WebNetworkProxyBase from './base';
 
 declare global {

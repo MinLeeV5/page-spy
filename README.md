@@ -34,20 +34,20 @@ to get more detail.
 
 | Repo                                                                                               | Platform       | Status |
 | -------------------------------------------------------------------------------------------------- | -------------- | ------ |
-| [`@huolala-tech/page-spy-types`](./packages/page-spy-types/)                                       | _Common types_ | Done   |
-| [`@huolala-tech/page-spy-browser`](./packages/page-spy-browser/)                                   | Web            | Done   |
-| [`@huolala-tech/page-spy-wechat`](./packages/page-spy-wechat/)                                     | Wechat         | Done   |
-| [`@huolala-tech/page-spy-alipay`](./packages/page-spy-alipay/)                                     | Alipay         | Done   |
-| [`@huolala-tech/page-spy-uniapp`](./packages/page-spy-uniapp/)                                     | UniApp         | Done   |
-| [`@huolala-tech/page-spy-taro`](./packages/page-spy-taro/)                                         | Taro           | Done   |
-| [`@huolala-tech/page-spy-react-native`](./packages/page-spy-react-native/)                         | React Native   | Done   |
+| [`@lastos/page-spy-types`](./packages/page-spy-types/)                                             | _Common types_ | Done   |
+| [`@lastos/page-spy-browser`](./packages/page-spy-browser/)                                         | Web            | Done   |
+| [`@lastos/page-spy-wechat`](./packages/page-spy-wechat/)                                           | Wechat         | Done   |
+| [`@lastos/page-spy-alipay`](./packages/page-spy-alipay/)                                           | Alipay         | Done   |
+| [`@lastos/page-spy-uniapp`](./packages/page-spy-uniapp/)                                           | UniApp         | Done   |
+| [`@lastos/page-spy-taro`](./packages/page-spy-taro/)                                               | Taro           | Done   |
+| [`@lastos/page-spy-react-native`](./packages/page-spy-react-native/)                               | React Native   | Done   |
 | [`@huolala/page-spy-harmony`](https://ohpm.openharmony.cn/#/cn/detail/@huolala%2Fpage-spy-harmony) | Huawei Harmony | Done   |
 
 ## Official plugins
 
 > Plugin document: [PageSpy plugins](./docs/plugin.md)
 
-| Repo                                                                                   | Platform | Type                              | Status |
-| -------------------------------------------------------------------------------------- | -------- | --------------------------------- | ------ |
-| [`@huolala-tech/page-spy-plugin-rrweb`](./packages/page-spy-plugin-rrweb/)             | Web      | Record the DOM mutations          | Done   |
-| [`@huolala-tech/page-spy-plugin-data-harbor`](./packages/page-spy-plugin-data-harbor/) | Web      | Offline caching data and download | Done   |
+| Repo                                                                             | Platform | Type                              | Status |
+| -------------------------------------------------------------------------------- | -------- | --------------------------------- | ------ |
+| [`@lastos/page-spy-plugin-rrweb`](./packages/page-spy-plugin-rrweb/)             | Web      | Record the DOM mutations          | Done   |
+| [`@lastos/page-spy-plugin-data-harbor`](./packages/page-spy-plugin-data-harbor/) | Web      | Offline caching data and download | Done   |

@@ -2,7 +2,7 @@
 /* eslint-disable vars-on-top */
 /* eslint-disable no-var */
 
-import { CookieStoreValue } from '@huolala-tech/page-spy-types/lib/storage';
+import { CookieStoreValue } from '@lastos/page-spy-types/lib/storage';
 
 declare global {
   declare module '*.svg' {

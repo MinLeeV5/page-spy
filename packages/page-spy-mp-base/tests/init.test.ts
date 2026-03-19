@@ -7,10 +7,11 @@ import NetworkPlugin from 'page-spy-mp-base/src/plugins/network';
 import ErrorPlugin from 'page-spy-mp-base/src/plugins/error';
 import SystemPlugin from 'page-spy-mp-base/src/plugins/system';
 
-import { OnInitParams, SpyConsole } from '@huolala-tech/page-spy-types/index';
+import { OnInitParams, SpyConsole } from '@lastos/page-spy-types/index';
 import { ROOM_SESSION_KEY } from 'page-spy-base/src';
 import { mp } from './setup';
 import { Config, InitConfig } from 'page-spy-mp-base/src/config';
+import Request from 'page-spy-mp-base/src/api';
 import socket from 'page-spy-mp-base/src/helpers/socket';
 import { MPStorageAPI } from 'page-spy-mp-base/src/types';
 import { Client } from 'page-spy-base/src';
@@ -172,12 +173,34 @@ describe('new PageSpy([config])', () => {
       address: sdk.address,
       roomUrl: sdk.roomUrl,
       project: '--',
+      env: '',
+      version: '',
       secret: '',
       useSecret: false,
     });
   });
 
-  it('Create room', async () => {});
+  it('Create room request carries env and version', async () => {
+    const spy = jest.spyOn(mp, 'request');
+    const config = new Config();
+    config.mergeConfig({
+      api: 'test-api.com',
+      enableSSL: false,
+      env: 'test',
+      version: '1.2.3',
+    });
+    const request = new Request(config, PageSpy.client);
+
+    await request.createRoom();
+
+    expect(spy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        url: expect.stringContaining(
+          'http://test-api.com/api/v1/room/create?group=--&title=--&env=test&version=1.2.3',
+        ),
+      }),
+    );
+  });
 
   it('Init connection with cache', async () => {
     expect(mp.getStorageSync(ROOM_SESSION_KEY)).toBeFalsy();

@@ -5,7 +5,7 @@ import {
   SocketState,
   SocketWrapper,
   WebSocketEvents,
-} from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-base';
 
 export class WebSocketWrapper extends SocketWrapper {
   public socketInstance: WebSocket | null = null;

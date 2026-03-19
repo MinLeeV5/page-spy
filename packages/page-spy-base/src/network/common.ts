@@ -1,4 +1,4 @@
-import type { SpyNetwork } from '@huolala-tech/page-spy-types';
+import type { SpyNetwork } from '@lastos/page-spy-types';
 import {
   isBlob,
   isDocument,

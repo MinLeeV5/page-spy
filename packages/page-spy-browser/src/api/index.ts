@@ -1,4 +1,4 @@
-import { getRandomId } from '@huolala-tech/page-spy-base';
+import { getRandomId } from '@lastos/page-spy-base';
 import { InitConfig } from '../config';
 
 interface TResponse<T> {
@@ -43,12 +43,14 @@ export default class Request {
   }
 
   createRoom() {
-    const { project, title, useSecret, secret } = this.config;
+    const { project, title, env, version, useSecret, secret } = this.config;
     const scheme = this.getScheme();
     const query = joinQuery({
       name: navigator.userAgent,
       group: project,
       title,
+      env,
+      version,
     });
     return fetch(`${scheme[0]}${this.base}/api/v1/room/create?${query}`, {
       method: 'POST',

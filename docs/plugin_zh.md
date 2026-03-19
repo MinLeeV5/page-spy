@@ -6,20 +6,20 @@
 
 ## 支持注册插件的 SDK
 
-- `@huolala-tech/page-spy-browser@^1.7.0`;
-- `@huolala-tech/page-spy-wechat@^1.7.0`;
-- `@huolala-tech/page-spy-uniapp@^1.7.0`;
+- `@lastos/page-spy-browser@^1.7.0`;
+- `@lastos/page-spy-wechat@^1.7.0`;
+- `@lastos/page-spy-uniapp@^1.7.0`;
 
 ## 官方插件
 
-- [`@huolala-tech/page-spy-plugin-rrweb`](../packages/page-spy-plugin-rrweb): 使用 `rrweb` 记录客户端 DOM 变化；
-- [`@huolala-tech/page-spy-plugin-data-harbor`](../packages/page-spy-plugin-data-harbor): 提供离线缓存和下载数据功能；
+- [`@lastos/page-spy-plugin-rrweb`](../packages/page-spy-plugin-rrweb): 使用 `rrweb` 记录客户端 DOM 变化；
+- [`@lastos/page-spy-plugin-data-harbor`](../packages/page-spy-plugin-data-harbor): 提供离线缓存和下载数据功能；
 
 ## 插件的定义
 
 ```ts
-import { SocketStoreType } from '@huolala-tech/page-spy-types/lib/base';
-import { PluginOrder } from '@huolala-tech/page-spy-types';
+import { SocketStoreType } from '@lastos/page-spy-types/lib/base';
+import { PluginOrder } from '@lastos/page-spy-types';
 import { InitConfig } from 'types';
 
 export abstract class PageSpyPlugin {
@@ -89,7 +89,7 @@ import {
   PageSpyPlugin,
   OnInitParams,
   OnMountedParams,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 
 type Options = Parameters<typeof record>[number];
 

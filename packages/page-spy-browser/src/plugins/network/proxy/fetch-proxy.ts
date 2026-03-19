@@ -10,7 +10,7 @@ import {
   getFormattedBody,
   MAX_SIZE,
   Reason,
-} from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-base';
 import WebNetworkProxyBase from './base';
 
 export default class FetchProxy extends WebNetworkProxyBase {

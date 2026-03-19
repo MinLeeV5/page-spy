@@ -2,7 +2,7 @@ import {
   ConfigBase,
   extendConfigSchema,
   SchemaUnwrap,
-} from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-base';
 import logoUrl from './assets/logo.svg';
 import modalLogoUrl from './assets/modal-logo.svg';
 

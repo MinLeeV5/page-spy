@@ -1,5 +1,5 @@
-import type { OnInitParams, PageSpyPlugin } from '@huolala-tech/page-spy-types';
-import { makeMessage } from '@huolala-tech/page-spy-base';
+import type { OnInitParams, PageSpyPlugin } from '@lastos/page-spy-types';
+import { makeMessage } from '@lastos/page-spy-base';
 import socketStore from '../helpers/socket';
 import { InitConfig } from '../config';
 

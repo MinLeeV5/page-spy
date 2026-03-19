@@ -1,4 +1,4 @@
-import type { SpyMessage, SpySocket } from '@huolala-tech/page-spy-types';
+import type { SpyMessage, SpySocket } from '@lastos/page-spy-types';
 import { getRandomId } from '../utils';
 import * as SERVER_MESSAGE_TYPE from './server-type';
 

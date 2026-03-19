@@ -59,7 +59,7 @@ export default [
       del({ targets: [dirname(pkg.main)] }),
     ],
     external: [
-      '@huolala-tech/page-spy-mp-base'
+      '@lastos/page-spy-mp-base'
     ]
   },
 ];

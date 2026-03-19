@@ -1,5 +1,5 @@
-import type { Client } from '@huolala-tech/page-spy-base/dist/client';
-import { getRandomId } from '@huolala-tech/page-spy-base/dist/utils';
+import type { Client } from '@lastos/page-spy-base/dist/client';
+import { getRandomId } from '@lastos/page-spy-base/dist/utils';
 
 import { joinQuery, promisifyMPApi } from '../utils';
 import { Config, InitConfig } from '../config';
@@ -39,13 +39,16 @@ export default class Request {
   }
 
   createRoom() {
-    const { enableSSL, project, title, useSecret, secret } = this.config.get();
+    const { enableSSL, project, title, env, version, useSecret, secret } =
+      this.config.get();
     const scheme = getScheme(enableSSL);
     const device = this.client.getName();
 
     const query = joinQuery({
       group: project,
       title,
+      env,
+      version,
       // TODO putting all device info (or ua) in "name" is not a good practice.
       // this should be changed in next main version.
       // the backend support custom field in queries.

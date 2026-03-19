@@ -6,8 +6,8 @@ import {
   NetworkProxyBase,
   PAGE_SPY_WS_ENDPOINT,
   WebSocketMessage,
-} from '@huolala-tech/page-spy-base';
-import { OnInitParams, PageSpyPlugin } from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-base';
+import { OnInitParams, PageSpyPlugin } from '@lastos/page-spy-types';
 import WebNetworkProxyBase from './proxy/base';
 import { InitConfig } from '../../config';
 

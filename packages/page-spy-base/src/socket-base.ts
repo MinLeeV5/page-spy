@@ -3,8 +3,8 @@
  * 不同平台 socket 的 api 不同但功能相同，这里抽象一层
  */
 
-import { SpyMessage, SpySocket, SpyBase } from '@huolala-tech/page-spy-types';
-import { PackedEvent } from '@huolala-tech/page-spy-types/lib/socket-event';
+import { SpyMessage, SpySocket, SpyBase } from '@lastos/page-spy-types';
+import { PackedEvent } from '@lastos/page-spy-types/lib/socket-event';
 import { getRandomId, psLog, stringifyData } from './utils';
 import {
   makeMessage,
@@ -153,7 +153,7 @@ export abstract class SocketStoreBase {
 
   updateRoomInfo() {
     if (this.getPageSpyConfig) {
-      const { project, title } = this.getPageSpyConfig();
+      const { project, title, env, version } = this.getPageSpyConfig();
       const name = this.getClient?.().getName();
       this.send(
         {
@@ -166,6 +166,8 @@ export abstract class SocketStoreBase {
                 title,
                 name,
                 group: project,
+                env,
+                version,
               },
             },
           },

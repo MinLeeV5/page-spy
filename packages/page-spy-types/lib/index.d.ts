@@ -1,10 +1,12 @@
-import { SocketStoreBase, InitConfigBase } from '@huolala-tech/page-spy-base';
+import { SocketStoreBase, InitConfigBase } from '@lastos/page-spy-base';
 import { Modal } from './modal';
 import { Toast } from './toast';
 
 export interface UpdateConfig {
   title?: string;
   project?: string;
+  env?: 'dev' | 'test' | 'uat' | 'prod';
+  version?: string;
 }
 
 interface CommonParams {

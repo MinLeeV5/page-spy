@@ -1,5 +1,5 @@
 {
-  "name": "@huolala-tech/page-spy-mp-base",
+  "name": "@lastos/page-spy-mp-base",
   "version": "2.2.4",
   "description": "The base of PageSpy for miniprogram.",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@huolala-tech/page-spy-base": "^2.2.4",
-    "@huolala-tech/page-spy-types": "^2.2.4"
+    "@lastos/page-spy-base": "^2.2.4",
+    "@lastos/page-spy-types": "^2.2.4"
   },
   "publishConfig": {
     "access": "public"

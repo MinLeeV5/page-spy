@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-plugin-mp-eval?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-mp-eval
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-plugin-mp-eval
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-plugin-mp-eval/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-plugin-mp-eval?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-plugin-mp-eval
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-plugin-mp-eval
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-plugin-mp-eval/dist/iife/index.min.js
 
 English | [中文](./README_ZH.md)
 
-# `@huolala-tech/page-spy-plugin-mp-eval`
+# `@lastos/page-spy-plugin-mp-eval`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -14,10 +14,10 @@ The `MPEvalPlugin` is used in mini program SDK of PageSpy, making it possible to
 
 Available mini program SDKs include:
 
-- [@huolala-tech/page-spy-wechat](https://www.npmjs.com/package/@huolala-tech/page-spy-wechat)
-- [@huolala-tech/page-spy-alipay](https://www.npmjs.com/package/@huolala-tech/page-spy-alipay)
-- [@huolala-tech/page-spy-uniapp](https://www.npmjs.com/package/@huolala-tech/page-spy-uniapp)
-- [@huolala-tech/page-spy-taro](https://www.npmjs.com/package/@huolala-tech/page-spy-taro)
+- [@lastos/page-spy-wechat](https://www.npmjs.com/package/@lastos/page-spy-wechat)
+- [@lastos/page-spy-alipay](https://www.npmjs.com/package/@lastos/page-spy-alipay)
+- [@lastos/page-spy-uniapp](https://www.npmjs.com/package/@lastos/page-spy-uniapp)
+- [@lastos/page-spy-taro](https://www.npmjs.com/package/@lastos/page-spy-taro)
 
 > [!CAUTION]
 > When submitting the mini program for review, be sure to delete this plugin in the code, otherwise the review will fail.
@@ -26,8 +26,8 @@ Available mini program SDKs include:
 
 ```ts
 // In your entry file like "main.ts"
-import PageSpy from '@huolala-tech/page-spy-wechat';
-import MPEvalPlugin from '@huolala-tech/page-spy-plugin-mp-eval';
+import PageSpy from '@lastos/page-spy-wechat';
+import MPEvalPlugin from '@lastos/page-spy-plugin-mp-eval';
 
 // Register plugin
 PageSpy.registerPlugin(new MPEvalPlugin());

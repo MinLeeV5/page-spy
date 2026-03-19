@@ -1,11 +1,11 @@
-import { psLog } from '@huolala-tech/page-spy-base/dist/utils';
-import type { Client } from '@huolala-tech/page-spy-base/dist/client';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
+import { psLog } from '@lastos/page-spy-base/dist/utils';
+import type { Client } from '@lastos/page-spy-base/dist/client';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
 import type {
   SpyStorage,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 import socketStore from '../helpers/socket';
 import type { MPStorageAPI, KVList } from '../types';
 import { getMPSDK, getOriginMPSDK } from '../helpers/mp-api';

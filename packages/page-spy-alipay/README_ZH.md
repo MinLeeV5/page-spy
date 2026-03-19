@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-alipay?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-alipay
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-alipay
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-alipay/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-alipay?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-alipay
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-alipay
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-alipay/dist/iife/index.min.js
 
 [English](./README.md) | 中文
 
-# `@huolala-tech/page-spy-alipay`
+# `@lastos/page-spy-alipay`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -15,7 +15,7 @@
 ## 使用
 
 ```ts
-import PageSpy from '@huolala-tech/page-spy-alipay';
+import PageSpy from '@lastos/page-spy-alipay';
 
 const pageSpy = new PageSpy({
   api: 'example.com',
@@ -28,5 +28,5 @@ const pageSpy = new PageSpy({
 
 如果你使用 UniAPP 或者 Taro，推荐使用相应的 SDK：
 
-- [@huolala-tech/page-spy-uniapp](https://www.npmjs.com/package/@huolala-tech/page-spy-uniapp)
-- [@huolala-tech/page-spy-taro](https://www.npmjs.com/package/@huolala-tech/page-spy-taro)
+- [@lastos/page-spy-uniapp](https://www.npmjs.com/package/@lastos/page-spy-uniapp)
+- [@lastos/page-spy-taro](https://www.npmjs.com/package/@lastos/page-spy-taro)

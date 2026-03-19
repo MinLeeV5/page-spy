@@ -4,7 +4,7 @@
  * some minor customization each.
  *
  * For specific mp platform, it should only modify the code based on this repo,
- * NOT the @huolala-tech/page-spy-base, to avoid multi-packing. So this repo must
+ * NOT the @lastos/page-spy-base, to avoid multi-packing. So this repo must
  * export all necessary items they need, like SocketStoreBase, Client.
  *
  * This pkg could be an external dependency.
@@ -15,20 +15,20 @@ import {
   isArray,
   isClass,
   psLog,
-} from '@huolala-tech/page-spy-base/dist/utils';
+} from '@lastos/page-spy-base/dist/utils';
 import {
   SocketState,
   SocketStoreBase,
-} from '@huolala-tech/page-spy-base/dist/socket-base';
-import { atom } from '@huolala-tech/page-spy-base/dist/atom';
-import { Client } from '@huolala-tech/page-spy-base/dist/client';
-import { ROOM_SESSION_KEY } from '@huolala-tech/page-spy-base/dist/constants';
+} from '@lastos/page-spy-base/dist/socket-base';
+import { atom } from '@lastos/page-spy-base/dist/atom';
+import { Client } from '@lastos/page-spy-base/dist/client';
+import { ROOM_SESSION_KEY } from '@lastos/page-spy-base/dist/constants';
 import type {
   PageSpyPlugin,
   PageSpyPluginLifecycle,
   PluginOrder,
   PageSpyPluginLifecycleArgs,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 
 import ConsolePlugin from './plugins/console';
 import ErrorPlugin from './plugins/error';
@@ -48,6 +48,8 @@ import { getMPSDK } from './helpers/mp-api';
 type UpdateConfig = {
   title?: string;
   project?: string;
+  env?: 'dev' | 'test' | 'uat' | 'prod';
+  version?: string;
 };
 
 class PageSpy {
@@ -142,8 +144,19 @@ class PageSpy {
     if (!roomCache || typeof roomCache !== 'object') {
       await this.createNewConnection();
     } else {
-      const { name, address, roomUrl, project: prev } = roomCache;
-      if (config.project !== prev) {
+      const {
+        name,
+        address,
+        roomUrl,
+        project: prevProject = '',
+        env: prevEnv = '',
+        version: prevVersion = '',
+      } = roomCache;
+      if (
+        config.project !== prevProject ||
+        config.env !== prevEnv ||
+        config.version !== prevVersion
+      ) {
         await this.createNewConnection();
       } else {
         this.name = name;
@@ -201,12 +214,14 @@ class PageSpy {
 
   saveSession() {
     const { name, address, roomUrl, config } = this;
-    const { useSecret, secret, project } = config.get();
+    const { useSecret, secret, project, env, version } = config.get();
     const roomCache = {
       name,
       address,
       roomUrl,
       project,
+      env,
+      version,
       useSecret,
       secret,
     };
@@ -239,12 +254,18 @@ class PageSpy {
   updateRoomInfo(obj: UpdateConfig) {
     if (!obj) return;
 
-    const { project, title } = obj;
+    const { project, title, env, version } = obj;
     if (project) {
       this.config.set('project', String(project));
     }
     if (title) {
       this.config.set('title', String(title));
+    }
+    if (env !== undefined) {
+      this.config.set('env', String(env) as InitConfig['env']);
+    }
+    if (version !== undefined) {
+      this.config.set('version', String(version));
     }
 
     socketStore.updateRoomInfo();

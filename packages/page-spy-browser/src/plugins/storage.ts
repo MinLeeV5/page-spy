@@ -1,9 +1,9 @@
-import { makeMessage } from '@huolala-tech/page-spy-base';
+import { makeMessage } from '@lastos/page-spy-base';
 import {
   SpyStorage,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 import socketStore from '../helpers/socket';
 import { InitConfig } from '../config';
 

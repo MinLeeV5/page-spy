@@ -3,15 +3,15 @@ import {
   isArray,
   isClass,
   psLog,
-} from '@huolala-tech/page-spy-base/dist/utils';
-import { Client } from '@huolala-tech/page-spy-base/dist/client';
+} from '@lastos/page-spy-base/dist/utils';
+import { Client } from '@lastos/page-spy-base/dist/client';
 import type {
   PageSpyPlugin,
   PageSpyPluginLifecycle,
   PluginOrder,
   PageSpyPluginLifecycleArgs,
   SpyClient,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 
 import { Platform } from 'react-native';
 import ConsolePlugin from './plugins/console';
@@ -37,6 +37,8 @@ const osMap: Record<typeof Platform.OS, SpyClient.OS> = {
 type UpdateConfig = {
   title?: string;
   project?: string;
+  env?: 'dev' | 'test' | 'uat' | 'prod';
+  version?: string;
 };
 
 const rnv = Platform.constants.reactNativeVersion;
@@ -184,12 +186,18 @@ class PageSpy {
   updateRoomInfo(obj: UpdateConfig) {
     if (!obj) return;
 
-    const { project, title } = obj;
+    const { project, title, env, version } = obj;
     if (project) {
       this.config.set('project', String(project));
     }
     if (title) {
       this.config.set('title', String(title));
+    }
+    if (env !== undefined) {
+      this.config.set('env', String(env) as InitConfig['env']);
+    }
+    if (version !== undefined) {
+      this.config.set('version', String(version));
     }
 
     socketStore.updateRoomInfo();

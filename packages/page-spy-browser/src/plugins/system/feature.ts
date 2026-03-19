@@ -1,5 +1,5 @@
-import { getObjectKeys, hasOwnProperty } from '@huolala-tech/page-spy-base';
-import type { SpySystem } from '@huolala-tech/page-spy-types';
+import { getObjectKeys, hasOwnProperty } from '@lastos/page-spy-base';
+import type { SpySystem } from '@lastos/page-spy-types';
 
 export const FEATURE_MAP: SpySystem.Feature = {
   Feature: {

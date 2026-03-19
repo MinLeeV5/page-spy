@@ -4,9 +4,9 @@ import {
   isString,
   isTypedArray,
   toStringTag,
-} from '@huolala-tech/page-spy-base/dist/utils';
-import { formatEntries } from '@huolala-tech/page-spy-base/dist/network/common';
-import { SpyNetwork } from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-base/dist/utils';
+import { formatEntries } from '@lastos/page-spy-base/dist/network/common';
+import { SpyNetwork } from '@lastos/page-spy-types';
 
 export async function getFormattedBody(body?: Document | BodyInit | null) {
   if (!body) {

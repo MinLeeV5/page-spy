@@ -1,5 +1,5 @@
-import type DataHarborPlugin from '@huolala-tech/page-spy-plugin-data-harbor';
-import type { PeriodItem } from '@huolala-tech/page-spy-plugin-data-harbor/dist/types/harbor/base';
+import type DataHarborPlugin from '@lastos/page-spy-plugin-data-harbor';
+import type { PeriodItem } from '@lastos/page-spy-plugin-data-harbor/dist/types/harbor/base';
 import classes from '../styles/index.module.less';
 import refreshSvg from '../assets/refresh.svg?raw';
 import pauseSvg from '../assets/pause.svg?raw';

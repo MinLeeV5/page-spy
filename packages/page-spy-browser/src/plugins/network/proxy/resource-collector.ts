@@ -1,5 +1,5 @@
-import { getRandomId, psLog } from '@huolala-tech/page-spy-base';
-import { SpyNetwork } from '@huolala-tech/page-spy-types';
+import { getRandomId, psLog } from '@lastos/page-spy-base';
+import { SpyNetwork } from '@lastos/page-spy-types';
 import WebNetworkProxyBase from './base';
 
 export class ResourceCollector extends WebNetworkProxyBase {

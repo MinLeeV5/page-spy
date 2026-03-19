@@ -1,10 +1,10 @@
-import { OnInitParams, PageSpyPlugin } from '@huolala-tech/page-spy-types';
-import { InitConfigBase } from '@huolala-tech/page-spy-base';
+import { OnInitParams, PageSpyPlugin } from '@lastos/page-spy-types';
+import { InitConfigBase } from '@lastos/page-spy-base';
 import { record } from 'rrweb';
 import type { recordOptions } from 'rrweb';
 import type { eventWithTime, listenerHandler } from '@rrweb/types';
-import { isBrowser, psLog } from '@huolala-tech/page-spy-base/dist/utils';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
+import { isBrowser, psLog } from '@lastos/page-spy-base/dist/utils';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
 
 interface Options extends recordOptions<eventWithTime> {
   // The data from 'rrweb-event' is typically larger (more interactions and complex

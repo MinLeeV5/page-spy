@@ -4,9 +4,9 @@ import PageSpyMPBase, {
   setMPSDK,
   Client,
   psLog,
-} from '@huolala-tech/page-spy-mp-base';
-import { InitConfig } from '@huolala-tech/page-spy-mp-base/dist/types/config';
-import { SpyClient } from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-mp-base';
+import { InitConfig } from '@lastos/page-spy-mp-base/dist/types/config';
+import { SpyClient } from '@lastos/page-spy-types';
 
 declare const tt: any;
 
@@ -48,7 +48,7 @@ class PageSpyTaro extends PageSpyMPBase {
     if (taroEnv === 'WEB') {
       browserType = 'unknown';
       psLog.warn(
-        'This package is designed for mini program, please use @huolala-tech/page-spy-browser for web project.',
+        'This package is designed for mini program, please use @lastos/page-spy-browser for web project.',
       );
     } else {
       browserType = HOST_MAP[taroEnv] || 'unknown';

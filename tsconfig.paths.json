@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@lastos/page-spy-*": ["./packages/page-spy-*"],
       "page-spy-base/*": ["./packages/page-spy-base/*"],
       "page-spy-mp-base/*": ["./packages/page-spy-mp-base/*"],
       "page-spy-browser/*": ["./packages/page-spy-browser/*"],

@@ -1,4 +1,4 @@
-# `@huolala-tech/page-spy-plugin-ospy`
+# `@lastos/page-spy-plugin-ospy`
 
 ![Screenshot](./.github/screenshots/image.png)
 

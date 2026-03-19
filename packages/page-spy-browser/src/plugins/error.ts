@@ -1,9 +1,9 @@
-import { atom, formatErrorObj, makeMessage } from '@huolala-tech/page-spy-base';
+import { atom, formatErrorObj, makeMessage } from '@lastos/page-spy-base';
 import type {
   SpyConsole,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 import socketStore from '../helpers/socket';
 import { InitConfig } from '../config';
 

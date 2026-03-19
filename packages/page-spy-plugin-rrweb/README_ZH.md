@@ -1,13 +1,13 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-plugin-rrweb?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-rrweb
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-plugin-rrweb
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-plugin-rrweb/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-plugin-rrweb?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-plugin-rrweb
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-plugin-rrweb
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-plugin-rrweb/dist/iife/index.min.js
 [rrweb-repo]: https://github.com/rrweb-io/rrweb
 [rrweb-record-options]: https://github.com/rrweb-io/rrweb/blob/master/guide.zh_CN.md#配置参数-1
 
 [English](./README.md) | 中文
 
-# `@huolala-tech/page-spy-plugin-rrweb`
+# `@lastos/page-spy-plugin-rrweb`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -17,7 +17,7 @@
 ## 类型定义
 
 ```ts
-import { PageSpyPlugin } from '@huolala-tech/page-spy-types';
+import { PageSpyPlugin } from '@lastos/page-spy-types';
 import type { recordOptions } from 'rrweb/typings/types';
 import type { eventWithTime } from '@rrweb/types';
 
@@ -64,8 +64,8 @@ export default RRWebPlugin;
 
   ```ts
   // 在你的入口文件中（如 "main.ts"）导入
-  import PageSpy from '@huolala-tech/page-spy-browser';
-  import RRWebPlugin from '@huolala-tech/page-spy-plugin-rrweb';
+  import PageSpy from '@lastos/page-spy-browser';
+  import RRWebPlugin from '@lastos/page-spy-plugin-rrweb';
 
   // 注册插件
   PageSpy.registerPlugin(new RRWebPlugin(options));

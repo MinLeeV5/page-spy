@@ -3,8 +3,8 @@ import type {
   PageSpyPlugin,
   SpyBase,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
-import { atom, getRandomId, makeMessage } from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-types';
+import { atom, getRandomId, makeMessage } from '@lastos/page-spy-base';
 import socketStore from '../helpers/socket';
 import type { InitConfig } from '../config';
 

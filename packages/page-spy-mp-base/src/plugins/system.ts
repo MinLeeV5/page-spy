@@ -2,9 +2,9 @@ import type {
   SpySystem,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
-import type { Client } from '@huolala-tech/page-spy-base/dist/client';
+} from '@lastos/page-spy-types';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
+import type { Client } from '@lastos/page-spy-base/dist/client';
 import socketStore from '../helpers/socket';
 import { getMPSDK } from '../helpers/mp-api';
 import { promisifyMPApi } from '../utils';

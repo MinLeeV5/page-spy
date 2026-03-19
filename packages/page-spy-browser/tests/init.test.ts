@@ -5,7 +5,7 @@ import NetworkPlugin from 'page-spy-browser/src/plugins/network';
 import SystemPlugin from 'page-spy-browser/src/plugins/system';
 import PagePlugin from 'page-spy-browser/src/plugins/page';
 import { StoragePlugin } from 'page-spy-browser/src/plugins/storage';
-import { OnInitParams, SpyConsole } from '@huolala-tech/page-spy-types';
+import { OnInitParams, SpyConsole } from '@lastos/page-spy-types';
 import socketStore from 'page-spy-browser/src/helpers/socket';
 import { atom, ROOM_SESSION_KEY } from 'page-spy-base/src';
 import { isBrowser } from 'page-spy-base/src';
@@ -179,9 +179,62 @@ describe('new PageSpy([config])', () => {
       address: sdk.address,
       project: '--',
       title: '--',
+      env: '',
+      version: '',
       secret: '',
       useSecret: false,
     });
+  });
+
+  it('Create room request carries env and version', async () => {
+    const fetchSpy = jest.spyOn(global, 'fetch').mockResolvedValue({
+      json: async () => ({
+        data: {
+          name: 'xxxx-name',
+          address: 'xxxx-address',
+        },
+      }),
+    } as any);
+
+    const config = new Config().mergeConfig({
+      api: 'custom-server.com',
+      clientOrigin: 'https://debug-ui.com',
+      enableSSL: false,
+      env: 'test',
+      version: '1.2.3',
+    });
+
+    const request = new Request(config);
+    await request.createRoom();
+
+    expect(fetchSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'http://custom-server.com/api/v1/room/create?name=',
+      ),
+      expect.any(Object),
+    );
+    expect(String(fetchSpy.mock.calls[0]?.[0])).toContain('env=test');
+    expect(String(fetchSpy.mock.calls[0]?.[0])).toContain('version=1.2.3');
+  });
+
+  it('Update room info should merge env and version', () => {
+    sdk = new SDK({
+      env: 'dev',
+      version: '1.0.0',
+      offline: true,
+    });
+
+    sdk.updateRoomInfo({
+      env: 'prod',
+      version: '2.0.0',
+    });
+
+    expect(sdk.config.get()).toEqual(
+      expect.objectContaining({
+        env: 'prod',
+        version: '2.0.0',
+      }),
+    );
   });
 
   it('Init connection with cache', () => {
@@ -192,6 +245,8 @@ describe('new PageSpy([config])', () => {
         address: 'xxx',
         project: '--',
         title: '--',
+        env: '',
+        version: '',
         secret: '',
         useSecret: false,
       }),

@@ -1,4 +1,4 @@
-import { psLog } from '@huolala-tech/page-spy-base/dist/utils';
+import { psLog } from '@lastos/page-spy-base/dist/utils';
 import { getMPSDK } from '.';
 
 export type UploadArgs = {

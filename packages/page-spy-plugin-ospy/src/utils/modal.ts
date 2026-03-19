@@ -1,5 +1,5 @@
-import { isString } from '@huolala-tech/page-spy-base';
-import type { ModalConfig, ShowParams } from '@huolala-tech/page-spy-types';
+import { isString } from '@lastos/page-spy-base';
+import type { ModalConfig, ShowParams } from '@lastos/page-spy-types';
 import classes from '../styles/modal.module.less';
 import closeSvg from '../assets/close.svg';
 import { i18n } from './locale';

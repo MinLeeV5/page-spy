@@ -1,5 +1,5 @@
-import type { Modal, Toast } from '@huolala-tech/page-spy-types';
-import { psLog } from '@huolala-tech/page-spy-base/dist/utils';
+import type { Modal, Toast } from '@lastos/page-spy-types';
+import { psLog } from '@lastos/page-spy-base/dist/utils';
 import copy from 'copy-to-clipboard';
 import classes from '../assets/index.module.less';
 import {

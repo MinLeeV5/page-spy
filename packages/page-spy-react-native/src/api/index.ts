@@ -1,5 +1,5 @@
-import type { Client } from '@huolala-tech/page-spy-base';
-import { getRandomId } from '@huolala-tech/page-spy-base/dist/utils';
+import type { Client } from '@lastos/page-spy-base';
+import { getRandomId } from '@lastos/page-spy-base/dist/utils';
 import { Config, InitConfig } from '../config';
 import { joinQuery } from '../utils';
 
@@ -50,6 +50,8 @@ export default class Request {
       name: encodeURIComponent(name),
       group: config.project,
       title: config.title,
+      env: config.env,
+      version: config.version,
     });
 
     return fetch(`${scheme[0]}${this.base}/api/v1/room/create?${query}`, {

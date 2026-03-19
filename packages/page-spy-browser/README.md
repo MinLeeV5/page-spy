@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-browser?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-browser
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-browser
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-browser/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-browser?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-browser
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-browser
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-browser/dist/iife/index.min.js
 
 English | [中文](./README_ZH.md)
 
-# `@huolala-tech/page-spy-browser`
+# `@lastos/page-spy-browser`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -53,6 +53,12 @@ interface InitConfig {
   // and the corresponding information is displayed under the "device id" in each debugging connection panel.
   // default: '--'
   title?: string;
+
+  // Deployment environment used for room filtering in the debug room list.
+  env?: 'dev' | 'test' | 'uat' | 'prod';
+
+  // Application version used for room filtering and display in the debug room list.
+  version?: string;
 
   // Indicates whether the SDK will automatically render the "Circle with Logo on White Background"
   // control in the bottom left corner of the client when initiation is complete. If set to false,

@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-react-native?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-react-native
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-react-native
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-react-native/dist/esm/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-react-native?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-react-native
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-react-native
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-react-native/dist/esm/index.min.js
 
 English | [中文](./README_ZH.md)
 
-# `@huolala-tech/page-spy-react-native`
+# `@lastos/page-spy-react-native`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -18,7 +18,7 @@ English | [中文](./README_ZH.md)
 ## Usage
 
 ```ts
-import PageSpy from '@huolala-tech/page-spy-react-native'
+import PageSpy from '@lastos/page-spy-react-native'
 
 const pageSpy = new PageSpy(config?: InitConfig)
 ```
@@ -73,4 +73,4 @@ And here's the link: https://reactnative.dev/docs/network
 
 This package does not include a default storage plugin, since the latest React Native removed the official storage APIs.
 
-If you use the official recommended storage library `@react-native-async-storage/async-storage`, we provide an independent plugin for you: [`@huolala-tech/page-spy-plugin-rn-async-storage`](https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-rn-async-storage)
+If you use the official recommended storage library `@react-native-async-storage/async-storage`, we provide an independent plugin for you: [`@lastos/page-spy-plugin-rn-async-storage`](https://www.npmjs.com/package/@lastos/page-spy-plugin-rn-async-storage)

@@ -1,11 +1,11 @@
-import { atom } from '@huolala-tech/page-spy-base/dist/atom';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
-import { formatErrorObj } from '@huolala-tech/page-spy-base/dist/utils';
+import { atom } from '@lastos/page-spy-base/dist/atom';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
+import { formatErrorObj } from '@lastos/page-spy-base/dist/utils';
 import type {
   SpyConsole,
   PageSpyPlugin,
   OnInitParams,
-} from '@huolala-tech/page-spy-types/index';
+} from '@lastos/page-spy-types/index';
 import socketStore from '../helpers/socket';
 import { getMPSDK, getOriginMPSDK } from '../helpers/mp-api';
 import { InitConfig } from '../config';

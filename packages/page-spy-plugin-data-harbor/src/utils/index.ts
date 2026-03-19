@@ -1,9 +1,5 @@
-import {
-  isBrowser,
-  isNumber,
-  psLog,
-} from '@huolala-tech/page-spy-base/dist/utils';
-import { ROOM_SESSION_KEY } from '@huolala-tech/page-spy-base/dist/constants';
+import { isBrowser, isNumber, psLog } from '@lastos/page-spy-base/dist/utils';
+import { ROOM_SESSION_KEY } from '@lastos/page-spy-base/dist/constants';
 
 import { strFromU8, zlibSync, strToU8 } from 'fflate';
 import { DataType } from '../harbor/base';

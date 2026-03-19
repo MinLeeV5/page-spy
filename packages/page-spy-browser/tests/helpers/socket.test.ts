@@ -3,9 +3,9 @@ import { WebSocketStore } from 'page-spy-browser/src/helpers/socket';
 import type {
   ConnectEvent,
   ErrorEvent,
-} from '@huolala-tech/page-spy-types/lib/socket-event';
+} from '@lastos/page-spy-types/lib/socket-event';
 import * as SERVER_MESSAGE_TYPE from 'page-spy-base/src';
-import { SpyMessage } from '@huolala-tech/page-spy-types';
+import { SpyMessage } from '@lastos/page-spy-types';
 import { SocketState } from 'page-spy-base/src';
 // Mock micro task delay
 const sleep = (t = 100) => new Promise((r) => setTimeout(r, t));

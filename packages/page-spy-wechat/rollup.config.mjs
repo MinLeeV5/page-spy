@@ -36,7 +36,7 @@ export default {
     },
   ],
   external: [
-    '@huolala-tech/page-spy-mp-base'
+    '@lastos/page-spy-mp-base'
   ],
   plugins: [
     ...plugins,

@@ -1,5 +1,5 @@
-import { CacheMessageItem } from '@huolala-tech/page-spy-plugin-data-harbor/dist/types/harbor/base';
-import { Lang } from '@huolala-tech/page-spy-base';
+import { CacheMessageItem } from '@lastos/page-spy-plugin-data-harbor/dist/types/harbor/base';
+import { Lang } from '@lastos/page-spy-base';
 import pageSpyLogo from './assets/logo.svg';
 
 export interface Config {

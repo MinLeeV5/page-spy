@@ -1,6 +1,6 @@
-import { ROOM_SESSION_KEY } from '@huolala-tech/page-spy-base/dist/constants';
-import { type MPSDK } from '@huolala-tech/page-spy-mp-base';
-import type { SpyMessage } from '@huolala-tech/page-spy-types';
+import { ROOM_SESSION_KEY } from '@lastos/page-spy-base/dist/constants';
+import { type MPSDK } from '@lastos/page-spy-mp-base';
+import type { SpyMessage } from '@lastos/page-spy-types';
 
 // the plugin should store the mp sdk by self, received from initiation.
 let mp: MPSDK;

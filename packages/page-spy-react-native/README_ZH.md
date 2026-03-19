@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-react-native?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-react-native
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-react-native
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-react-native/dist/esm/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-react-native?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-react-native
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-react-native
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-react-native/dist/esm/index.min.js
 
 [English](./README.md) | 中文
 
-# `@huolala-tech/page-spy-react-native`
+# `@lastos/page-spy-react-native`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -13,12 +13,12 @@
 > 这个 SDK 用于调试 React Native APP.
 
 > [!NOTE]
-> 如果用 React Native 编译为 Web，推荐使用 [`@huolala-tech/page-spy-browser`](https://www.npmjs.com/package/@huolala-tech/page-spy-browser)
+> 如果用 React Native 编译为 Web，推荐使用 [`@lastos/page-spy-browser`](https://www.npmjs.com/package/@lastos/page-spy-browser)
 
 ## 使用
 
 ```ts
-import PageSpy from '@huolala-tech/page-spy-react-native'
+import PageSpy from '@lastos/page-spy-react-native'
 
 const pageSpy = new PageSpy(config?: InitConfig)
 ```
@@ -74,4 +74,4 @@ IOS 和 Android 默认仅支持 https，如果你部署的 page-spy 服务没有
 
 本 SDK 没有包含 storage 插件，因为最新版的 React Native 也移除了默认的存储 API。
 
-对于官方推荐的 `@react-native-async-storage/async-storage`，我们提供了独立的插件：[`@huolala-tech/page-spy-plugin-rn-async-storage`](https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-rn-async-storage)
+对于官方推荐的 `@react-native-async-storage/async-storage`，我们提供了独立的插件：[`@lastos/page-spy-plugin-rn-async-storage`](https://www.npmjs.com/package/@lastos/page-spy-plugin-rn-async-storage)

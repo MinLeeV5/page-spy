@@ -59,6 +59,6 @@ export default {
   ],
   external: [
     '@tarojs/taro',
-    '@huolala-tech/page-spy-mp-base'
+    '@lastos/page-spy-mp-base'
   ],
 };

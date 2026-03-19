@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import { SpyClient } from '@huolala-tech/page-spy-types';
+import { SpyClient } from '@lastos/page-spy-types';
 
 export class Client {
   constructor(

@@ -3,8 +3,8 @@ import PageSpy, {
   Client,
   SocketStoreBase,
   platformAPI,
-} from '@huolala-tech/page-spy-mp-base';
-import { SpyClient } from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-mp-base';
+import { SpyClient } from '@lastos/page-spy-types';
 
 // reassign the global.mp to uni
 

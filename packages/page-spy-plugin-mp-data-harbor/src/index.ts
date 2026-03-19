@@ -3,15 +3,15 @@ import type {
   SpyMessage,
   PageSpyPlugin,
   PluginOrder,
-} from '@huolala-tech/page-spy-types';
-import { removeEndSlash } from '@huolala-tech/page-spy-base/dist/utils';
+} from '@lastos/page-spy-types';
+import { removeEndSlash } from '@lastos/page-spy-base/dist/utils';
 import {
   type Client,
   type SocketStoreBase,
   psLog,
   type MPPluginInitParams,
-} from '@huolala-tech/page-spy-mp-base';
-import { InitConfigBase } from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-mp-base';
+import { InitConfigBase } from '@lastos/page-spy-base';
 import { MemoryHarbor } from './harbor/memoryHarbor';
 import { saveData } from './utils/upload';
 import {

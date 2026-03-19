@@ -7,13 +7,13 @@ import {
   psLog,
   ROOM_SESSION_KEY,
   SocketState,
-} from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-base';
 import type {
   PageSpyPlugin,
   PageSpyPluginLifecycle,
   PageSpyPluginLifecycleArgs,
   PluginOrder,
-} from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-types';
 import { setup } from 'iseedeadpeople';
 import type { InitConfig } from './config';
 
@@ -45,6 +45,8 @@ import WebSocketPlugin from './plugins/network/websocket';
 type UpdateConfig = {
   title?: string;
   project?: string;
+  env?: 'dev' | 'test' | 'uat' | 'prod';
+  version?: string;
 };
 
 class PageSpy {
@@ -205,8 +207,11 @@ class PageSpy {
 
       const config = this.config.get();
 
-      return ['project', 'title', 'useSecret'].some(
-        (key) => cache[key] !== config[key as keyof InitConfig],
+      return ['project', 'title', 'env', 'version', 'useSecret'].some(
+        (key) =>
+          (cache[key] ?? '') !==
+          ((config[key as keyof InitConfig] as string | boolean | undefined) ??
+            ''),
       );
     } catch (e) {
       return true;
@@ -252,11 +257,14 @@ class PageSpy {
   }
 
   private saveSession() {
-    const { project, title, useSecret, secret } = this.config.get();
+    const { project, title, env, version, useSecret, secret } =
+      this.config.get();
     const roomInfo = JSON.stringify({
       address: this.address,
       project,
       title,
+      env,
+      version,
       useSecret,
       secret,
     });
@@ -464,7 +472,7 @@ class PageSpy {
   public updateRoomInfo(obj: UpdateConfig) {
     if (!obj) return;
 
-    const { project, title } = obj;
+    const { project, title, env, version } = obj;
     if (project) {
       this.config.set('project', String(project));
       const node = document.querySelector('.page-spy-project');
@@ -478,6 +486,12 @@ class PageSpy {
       if (node) {
         node.textContent = String(title);
       }
+    }
+    if (env !== undefined) {
+      this.config.set('env', String(env) as InitConfig['env']);
+    }
+    if (version !== undefined) {
+      this.config.set('version', String(version));
     }
 
     socketStore.updateRoomInfo();

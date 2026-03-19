@@ -3,7 +3,7 @@ import {
   getRandomId,
   psLog,
   getFormattedBody,
-} from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-base';
 import WebNetworkProxyBase from './base';
 
 export default class BeaconProxy extends WebNetworkProxyBase {

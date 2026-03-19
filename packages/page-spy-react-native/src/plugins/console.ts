@@ -3,10 +3,10 @@ import type {
   PageSpyPlugin,
   OnInitParams,
   SpyBase,
-} from '@huolala-tech/page-spy-types';
-import { getRandomId } from '@huolala-tech/page-spy-base/dist/utils';
-import { atom } from '@huolala-tech/page-spy-base/dist/atom';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
+} from '@lastos/page-spy-types';
+import { getRandomId } from '@lastos/page-spy-base/dist/utils';
+import { atom } from '@lastos/page-spy-base/dist/atom';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
 import socketStore from '../helpers/socket';
 import type { InitConfig } from '../config';
 

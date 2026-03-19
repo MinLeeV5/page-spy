@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-browser?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-browser
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-browser
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-browser/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-browser?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-browser
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-browser
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-browser/dist/iife/index.min.js
 
 [English](./README.md) | 中文
 
-# `@huolala-tech/page-spy-browser`
+# `@lastos/page-spy-browser`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -51,6 +51,12 @@ interface InitConfig {
   // 对应的信息显示在每个调试连接面板的「设备id」下方
   // 默认值 '--'
   title?: string;
+
+  // env 用于在调试端房间列表中按环境筛选
+  env?: 'dev' | 'test' | 'uat' | 'prod';
+
+  // version 用于在调试端房间列表中按版本展示和筛选
+  version?: string;
 
   // 指示 SDK 初始化完成，是否自动在客户端左下角渲染「圆形白底带 Logo」的控件
   // 如果设置为 false, 可以调用 window.$pageSpy.render() 手动渲染

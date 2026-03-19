@@ -1,13 +1,13 @@
 import { Interpreter } from '@huolala-tech/eval5';
-import { makeMessage } from '@huolala-tech/page-spy-base/dist/message';
-import { getRandomId, psLog } from '@huolala-tech/page-spy-base/dist/utils';
-import { getGlobal } from '@huolala-tech/page-spy-mp-base';
+import { makeMessage } from '@lastos/page-spy-base/dist/message';
+import { getRandomId, psLog } from '@lastos/page-spy-base/dist/utils';
+import { getGlobal } from '@lastos/page-spy-mp-base';
 import type {
   OnInitParams,
   PageSpyPlugin,
   SpyBase,
-} from '@huolala-tech/page-spy-types';
-import type { Atom, SocketStoreBase } from '@huolala-tech/page-spy-base';
+} from '@lastos/page-spy-types';
+import type { Atom, SocketStoreBase } from '@lastos/page-spy-base';
 
 export default class MPEvalPlugin implements PageSpyPlugin {
   public name: string = 'MPEvalPlugin';
@@ -24,7 +24,7 @@ export default class MPEvalPlugin implements PageSpyPlugin {
     if (MPEvalPlugin.hasInitd) return;
 
     const mpWarningText =
-      '!!!WARNING!!!: When submitting the mini program for review, be sure to delete the [@huolala-tech/page-spy-plugin-mp-eval] in the code, otherwise the review will fail.';
+      '!!!WARNING!!!: When submitting the mini program for review, be sure to delete the [@lastos/page-spy-plugin-mp-eval] in the code, otherwise the review will fail.';
 
     psLog.log(mpWarningText);
     psLog.info(mpWarningText);

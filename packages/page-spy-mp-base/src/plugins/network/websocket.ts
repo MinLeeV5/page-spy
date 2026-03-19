@@ -4,13 +4,13 @@ import {
   WebSocketMessage,
   PAGE_SPY_WS_ENDPOINT,
   ReqReadyState,
-} from '@huolala-tech/page-spy-base';
-import { OnInitParams, PageSpyPlugin } from '@huolala-tech/page-spy-types';
+} from '@lastos/page-spy-base';
+import { OnInitParams, PageSpyPlugin } from '@lastos/page-spy-types';
 import {
   getRandomId,
   psLog,
   toStringTag,
-} from '@huolala-tech/page-spy-base/dist/utils';
+} from '@lastos/page-spy-base/dist/utils';
 import MPNetworkProxyBase from './proxy/base';
 import { InitConfig } from '../../config';
 import { getOriginMPSDK } from '../../helpers/mp-api';

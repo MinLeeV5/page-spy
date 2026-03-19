@@ -1,15 +1,16 @@
 import { z, ZodError } from 'zod';
-import { DataItem as ConsoleData } from '@huolala-tech/page-spy-types/lib/console';
-import { DataItem as StorageData } from '@huolala-tech/page-spy-types/lib/storage';
-import { DataItem as PageData } from '@huolala-tech/page-spy-types/lib/page';
-import { DataItem as DatabaseData } from '@huolala-tech/page-spy-types/lib/database';
-import { DataItem as SystemData } from '@huolala-tech/page-spy-types/lib/system';
-import { RequestInfo } from '@huolala-tech/page-spy-types/lib/network';
+import { DataItem as ConsoleData } from '@lastos/page-spy-types/lib/console';
+import { DataItem as StorageData } from '@lastos/page-spy-types/lib/storage';
+import { DataItem as PageData } from '@lastos/page-spy-types/lib/page';
+import { DataItem as DatabaseData } from '@lastos/page-spy-types/lib/database';
+import { DataItem as SystemData } from '@lastos/page-spy-types/lib/system';
+import { RequestInfo } from '@lastos/page-spy-types/lib/network';
 
 export type SchemaUnwrap<T extends z.ZodType> = z.infer<T>;
 
 const processorFn = <T>() =>
   z.function().args(z.custom<T>()).returns(z.boolean().optional());
+const roomEnvSchema = z.enum(['dev', 'test', 'uat', 'prod']);
 
 const baseSchema = z
   .object({
@@ -34,6 +35,16 @@ const baseSchema = z
      * show in the room-list route page.
      */
     title: z.string().min(1, 'Missing value'),
+
+    /**
+     * Custom deployment environment used for room filtering.
+     */
+    env: roomEnvSchema.or(z.literal('')),
+
+    /**
+     * Custom application version used for room filtering.
+     */
+    version: z.string(),
 
     /**
      * Specify the server <scheme> manually.
@@ -140,6 +151,8 @@ export abstract class ConfigBase<C extends InitConfigBase> {
       api: '',
       project: '--',
       title: '--',
+      env: '',
+      version: '',
       enableSSL: true,
       messageCapacity: 1000,
       useSecret: false,

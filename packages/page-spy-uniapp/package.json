@@ -1,5 +1,5 @@
 {
-  "name": "@huolala-tech/page-spy-uniapp",
+  "name": "@lastos/page-spy-uniapp",
   "version": "2.2.4",
   "description": "A developer tool for debugging uniapp miniprogram",
   "license": "MIT",
@@ -29,8 +29,8 @@
     "watch": "rollup -c -w"
   },
   "dependencies": {
-    "@huolala-tech/page-spy-mp-base": "^2.2.4",
-    "@huolala-tech/page-spy-types": "^2.2.4"
+    "@lastos/page-spy-mp-base": "^2.2.4",
+    "@lastos/page-spy-types": "^2.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",

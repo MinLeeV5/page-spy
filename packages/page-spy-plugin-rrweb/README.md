@@ -1,13 +1,13 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-plugin-rrweb?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-rrweb
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-plugin-rrweb
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-plugin-rrweb/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-plugin-rrweb?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-plugin-rrweb
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-plugin-rrweb
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-plugin-rrweb/dist/iife/index.min.js
 [rrweb-repo]: https://github.com/rrweb-io/rrweb
 [rrweb-record-options]: https://github.com/rrweb-io/rrweb/blob/master/guide.md#options
 
 English | [中文](./README_ZH.md)
 
-# `@huolala-tech/page-spy-plugin-rrweb`
+# `@lastos/page-spy-plugin-rrweb`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -17,7 +17,7 @@ English | [中文](./README_ZH.md)
 ## Definition
 
 ```ts
-import { PageSpyPlugin } from '@huolala-tech/page-spy-types';
+import { PageSpyPlugin } from '@lastos/page-spy-types';
 import type { recordOptions } from 'rrweb/typings/types';
 import type { eventWithTime } from '@rrweb/types';
 
@@ -64,8 +64,8 @@ export default RRWebPlugin;
 
   ```ts
   // In your entry file like "main.ts"
-  import PageSpy from '@huolala-tech/page-spy-browser';
-  import RRWebPlugin from '@huolala-tech/page-spy-plugin-rrweb';
+  import PageSpy from '@lastos/page-spy-browser';
+  import RRWebPlugin from '@lastos/page-spy-plugin-rrweb';
 
   // Register plugin
   PageSpy.registerPlugin(new RRWebPlugin(options));

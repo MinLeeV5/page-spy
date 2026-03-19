@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-wechat?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-wechat
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-wechat
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-wechat/dist/iife/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-wechat?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-wechat
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-wechat
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-wechat/dist/iife/index.min.js
 
 [English](./README.md) | 中文
 
-# `@huolala-tech/page-spy-wechat`
+# `@lastos/page-spy-wechat`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -17,7 +17,7 @@
 在原生微信小程序中使用 npm 包，请遵循 [npm 支持](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)。
 
 ```ts
-import PageSpy from '@huolala-tech/page-spy-wechat';
+import PageSpy from '@lastos/page-spy-wechat';
 
 const pageSpy = new PageSpy({
   api: 'example.com',
@@ -30,5 +30,5 @@ const pageSpy = new PageSpy({
 
 如果你使用 UniAPP 或者 Taro，推荐使用相应的 SDK：
 
-- [@huolala-tech/page-spy-uniapp](https://www.npmjs.com/package/@huolala-tech/page-spy-uniapp)
-- [@huolala-tech/page-spy-taro](https://www.npmjs.com/package/@huolala-tech/page-spy-taro)
+- [@lastos/page-spy-uniapp](https://www.npmjs.com/package/@lastos/page-spy-uniapp)
+- [@lastos/page-spy-taro](https://www.npmjs.com/package/@lastos/page-spy-taro)

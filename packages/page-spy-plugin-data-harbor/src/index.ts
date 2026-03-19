@@ -5,10 +5,10 @@ import type {
   PageSpyPlugin,
   PluginOrder,
   OnMountedParams,
-} from '@huolala-tech/page-spy-types';
-import { psLog, removeEndSlash } from '@huolala-tech/page-spy-base/dist/utils';
-import type { SocketStoreBase, RequestItem } from '@huolala-tech/page-spy-base';
-import type { InitConfig } from '@huolala-tech/page-spy-browser/dist/types/config';
+} from '@lastos/page-spy-types';
+import { psLog, removeEndSlash } from '@lastos/page-spy-base/dist/utils';
+import type { SocketStoreBase, RequestItem } from '@lastos/page-spy-base';
+import type { InitConfig } from '@lastos/page-spy-browser/dist/types/config';
 import {
   BlobHarbor,
   DEFAULT_MAXIMUM,

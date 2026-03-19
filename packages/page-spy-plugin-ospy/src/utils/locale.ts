@@ -1,4 +1,4 @@
-import { Translation } from '@huolala-tech/page-spy-base';
+import { Translation } from '@lastos/page-spy-base';
 
 const locales = {
   zh: {

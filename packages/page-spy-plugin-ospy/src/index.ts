@@ -1,8 +1,8 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-console */
-import PageSpy from '@huolala-tech/page-spy-browser';
-import DataHarborPlugin from '@huolala-tech/page-spy-plugin-data-harbor';
-import RRWebPlugin from '@huolala-tech/page-spy-plugin-rrweb';
+import PageSpy from '@lastos/page-spy-browser';
+import DataHarborPlugin from '@lastos/page-spy-plugin-data-harbor';
+import RRWebPlugin from '@lastos/page-spy-plugin-rrweb';
 import { dot, pageSpyExist } from './utils';
 import classes from './styles/index.module.less';
 import './styles/normalize.less';

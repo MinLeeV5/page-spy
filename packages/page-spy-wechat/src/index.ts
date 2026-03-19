@@ -1,5 +1,5 @@
-import PageSpy, { setMPSDK, Client } from '@huolala-tech/page-spy-mp-base';
-import { SpyClient } from '@huolala-tech/page-spy-types';
+import PageSpy, { setMPSDK, Client } from '@lastos/page-spy-mp-base';
+import { SpyClient } from '@lastos/page-spy-types';
 
 declare const wx: any;
 

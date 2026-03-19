@@ -1,4 +1,4 @@
-import type { SpyMessage } from '@huolala-tech/page-spy-types';
+import type { SpyMessage } from '@lastos/page-spy-types';
 
 export type DataType = 'console' | 'network' | 'system' | 'storage' | 'meta';
 

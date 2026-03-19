@@ -1,10 +1,6 @@
-import { makeMessage } from '@huolala-tech/page-spy-base';
+import { makeMessage } from '@lastos/page-spy-base';
 import '../../deps/modernizr';
-import {
-  SpySystem,
-  PageSpyPlugin,
-  OnInitParams,
-} from '@huolala-tech/page-spy-types';
+import { SpySystem, PageSpyPlugin, OnInitParams } from '@lastos/page-spy-types';
 import socketStore from '../../helpers/socket';
 import { computeResult } from './feature';
 import { InitConfig } from '../../config';

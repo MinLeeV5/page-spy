@@ -1,11 +1,11 @@
-[npm-image]: https://img.shields.io/npm/v/@huolala-tech/page-spy-plugin-mp-data-harbor?logo=npm&label=version
-[npm-url]: https://www.npmjs.com/package/@huolala-tech/page-spy-plugin-mp-data-harbor
-[minified-image]: https://img.shields.io/bundlephobia/min/@huolala-tech/page-spy-plugin-mp-data-harbor
-[minified-url]: https://unpkg.com/browse/@huolala-tech/page-spy-plugin-mp-data-harbor/dist/esm/index.min.js
+[npm-image]: https://img.shields.io/npm/v/@lastos/page-spy-plugin-mp-data-harbor?logo=npm&label=version
+[npm-url]: https://www.npmjs.com/package/@lastos/page-spy-plugin-mp-data-harbor
+[minified-image]: https://img.shields.io/bundlephobia/min/@lastos/page-spy-plugin-mp-data-harbor
+[minified-url]: https://unpkg.com/browse/@lastos/page-spy-plugin-mp-data-harbor/dist/esm/index.min.js
 
 English | [中文](./README_ZH.md)
 
-# `@huolala-tech/page-spy-plugin-mp-data-harbor`
+# `@lastos/page-spy-plugin-mp-data-harbor`
 
 [![SDK version][npm-image]][npm-url]
 [![SDK size][minified-image]][minified-url]
@@ -19,7 +19,7 @@ In the past, remote debugging had a prerequisite that "both the client and debug
 ## Definition
 
 ```ts
-import { PageSpyPlugin } from '@huolala-tech/page-spy-types';
+import { PageSpyPlugin } from '@lastos/page-spy-types';
 
 type DataType = 'console' | 'network' | 'system' | 'storage';
 
@@ -43,9 +43,9 @@ export default DataHarborPlugin;
 ### Load plugin
 
 ```ts
-import PageSpy from '@huolala-tech/page-spy-uniapp';
+import PageSpy from '@lastos/page-spy-uniapp';
 // Import the plugin in your entry file like "main.ts".
-import DataHarborPlugin from '@huolala-tech/page-spy-plugin-mp-data-harbor';
+import DataHarborPlugin from '@lastos/page-spy-plugin-mp-data-harbor';
 
 // Init and register the plugin before the PageSpy sdk initiated.
 const harbor = new DataHarborPlugin(config);

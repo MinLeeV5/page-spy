@@ -48,8 +48,11 @@ import { getMPSDK } from './helpers/mp-api';
 type UpdateConfig = {
   title?: string;
   project?: string;
+  unique?: string;
+  url?: string;
   env?: 'dev' | 'test' | 'uat' | 'prod';
   version?: string;
+  roomLogo?: string;
 };
 
 class PageSpy {
@@ -149,13 +152,19 @@ class PageSpy {
         address,
         roomUrl,
         project: prevProject = '',
+        unique: prevUnique = '',
+        url: prevUrl = '',
         env: prevEnv = '',
         version: prevVersion = '',
+        roomLogo: prevRoomLogo = '',
       } = roomCache;
       if (
         config.project !== prevProject ||
+        config.unique !== prevUnique ||
+        config.url !== prevUrl ||
         config.env !== prevEnv ||
-        config.version !== prevVersion
+        config.version !== prevVersion ||
+        config.roomLogo !== prevRoomLogo
       ) {
         await this.createNewConnection();
       } else {
@@ -214,14 +223,18 @@ class PageSpy {
 
   saveSession() {
     const { name, address, roomUrl, config } = this;
-    const { useSecret, secret, project, env, version } = config.get();
+    const { useSecret, secret, project, unique, url, env, version, roomLogo } =
+      config.get();
     const roomCache = {
       name,
       address,
       roomUrl,
       project,
+      unique,
+      url,
       env,
       version,
+      roomLogo,
       useSecret,
       secret,
     };
@@ -254,18 +267,27 @@ class PageSpy {
   updateRoomInfo(obj: UpdateConfig) {
     if (!obj) return;
 
-    const { project, title, env, version } = obj;
+    const { project, title, unique, url, env, version, roomLogo } = obj;
     if (project) {
       this.config.set('project', String(project));
     }
     if (title) {
       this.config.set('title', String(title));
     }
+    if (unique !== undefined) {
+      this.config.set('unique', String(unique));
+    }
+    if (url !== undefined) {
+      this.config.set('url', String(url));
+    }
     if (env !== undefined) {
       this.config.set('env', String(env) as InitConfig['env']);
     }
     if (version !== undefined) {
       this.config.set('version', String(version));
+    }
+    if (roomLogo !== undefined) {
+      this.config.set('roomLogo', String(roomLogo));
     }
 
     socketStore.updateRoomInfo();

@@ -37,6 +37,8 @@ const osMap: Record<typeof Platform.OS, SpyClient.OS> = {
 type UpdateConfig = {
   title?: string;
   project?: string;
+  unique?: string;
+  url?: string;
   env?: 'dev' | 'test' | 'uat' | 'prod';
   version?: string;
 };
@@ -186,12 +188,18 @@ class PageSpy {
   updateRoomInfo(obj: UpdateConfig) {
     if (!obj) return;
 
-    const { project, title, env, version } = obj;
+    const { project, title, unique, url, env, version } = obj;
     if (project) {
       this.config.set('project', String(project));
     }
     if (title) {
       this.config.set('title', String(title));
+    }
+    if (unique !== undefined) {
+      this.config.set('unique', String(unique));
+    }
+    if (url !== undefined) {
+      this.config.set('url', String(url));
     }
     if (env !== undefined) {
       this.config.set('env', String(env) as InitConfig['env']);

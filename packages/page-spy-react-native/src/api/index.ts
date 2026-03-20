@@ -47,9 +47,11 @@ export default class Request {
     const scheme = getScheme(config.enableSSL);
     const name = this.client.getName();
     const query = joinQuery({
-      name: encodeURIComponent(name),
+      name,
       group: config.project,
       title: config.title,
+      unique: config.unique,
+      url: config.url,
       env: config.env,
       version: config.version,
     });

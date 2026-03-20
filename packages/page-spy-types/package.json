@@ -1,6 +1,6 @@
 {
   "name": "@lastos/page-spy-types",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "Types for PageSpy SDK",
   "license": "MIT",
   "types": "index.d.ts",

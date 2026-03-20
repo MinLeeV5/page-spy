@@ -37,6 +37,8 @@ export interface RoomInfo {
   roomUrl: string;
   project: string;
   title: string;
+  unique: string;
+  url: string;
   useSecret: boolean;
   secret: string;
 }

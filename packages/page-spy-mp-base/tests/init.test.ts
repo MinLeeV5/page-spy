@@ -173,21 +173,27 @@ describe('new PageSpy([config])', () => {
       address: sdk.address,
       roomUrl: sdk.roomUrl,
       project: '--',
+      unique: '',
+      url: '',
       env: '',
       version: '',
+      roomLogo: '',
       secret: '',
       useSecret: false,
     });
   });
 
-  it('Create room request carries env and version', async () => {
+  it('Create room request carries unique env version url and roomLogo', async () => {
     const spy = jest.spyOn(mp, 'request');
     const config = new Config();
     config.mergeConfig({
       api: 'test-api.com',
       enableSSL: false,
+      unique: 'device-mp-42',
       env: 'test',
       version: '1.2.3',
+      url: 'https://app.example.com/home?scene=mp',
+      roomLogo: 'https://cdn.example.com/mp-logo.png',
     });
     const request = new Request(config, PageSpy.client);
 
@@ -195,9 +201,46 @@ describe('new PageSpy([config])', () => {
 
     expect(spy).toHaveBeenCalledWith(
       expect.objectContaining({
-        url: expect.stringContaining(
-          'http://test-api.com/api/v1/room/create?group=--&title=--&env=test&version=1.2.3',
-        ),
+        url: expect.stringContaining('group=--'),
+      }),
+    );
+    expect(spy.mock.calls[0]?.[0].url).toContain('title=--');
+    expect(spy.mock.calls[0]?.[0].url).toContain('unique=device-mp-42');
+    expect(spy.mock.calls[0]?.[0].url).toContain(
+      'url=https%3A%2F%2Fapp.example.com%2Fhome%3Fscene%3Dmp',
+    );
+    expect(spy.mock.calls[0]?.[0].url).toContain('env=test');
+    expect(spy.mock.calls[0]?.[0].url).toContain('version=1.2.3');
+    expect(spy.mock.calls[0]?.[0].url).toContain(
+      'roomLogo=https%3A%2F%2Fcdn.example.com%2Fmp-logo.png',
+    );
+  });
+
+  it('Update room info should merge unique env version url and roomLogo', () => {
+    const sdk = new PageSpy({
+      api: 'test-api.com',
+      unique: 'device-before',
+      env: 'dev',
+      version: '1.0.0',
+      url: 'https://before.example.com',
+      roomLogo: 'https://cdn.example.com/logo-before.png',
+    });
+
+    sdk.updateRoomInfo({
+      unique: 'device-after',
+      env: 'prod',
+      version: '2.0.0',
+      url: 'https://after.example.com/path',
+      roomLogo: 'https://cdn.example.com/logo-after.png',
+    });
+
+    expect(sdk.config.get()).toEqual(
+      expect.objectContaining({
+        unique: 'device-after',
+        env: 'prod',
+        version: '2.0.0',
+        url: 'https://after.example.com/path',
+        roomLogo: 'https://cdn.example.com/logo-after.png',
       }),
     );
   });
@@ -209,11 +252,59 @@ describe('new PageSpy([config])', () => {
       address: 'xxxx-address',
       roomUrl: 'test-room-url',
       project: '--',
+      unique: '',
+      url: '',
     });
 
     const spy = jest.spyOn(PageSpy.prototype, 'useOldConnection');
 
     new PageSpy({ api: 'test-api.com' });
+
+    await sleep();
+    expect(spy).toBeCalled();
+  });
+
+  it('Will create a new connection when cached url differs', async () => {
+    mp.setStorageSync(ROOM_SESSION_KEY, {
+      name: '',
+      address: 'xxxx-address',
+      roomUrl: 'test-room-url',
+      project: '--',
+      unique: '',
+      env: '',
+      version: '',
+      url: 'https://old.example.com',
+    });
+
+    const spy = jest.spyOn(PageSpy.prototype, 'createNewConnection');
+
+    new PageSpy({
+      api: 'test-api.com',
+      url: 'https://new.example.com',
+    });
+
+    await sleep();
+    expect(spy).toBeCalled();
+  });
+
+  it('Will create a new connection when cached unique differs', async () => {
+    mp.setStorageSync(ROOM_SESSION_KEY, {
+      name: '',
+      address: 'xxxx-address',
+      roomUrl: 'test-room-url',
+      project: '--',
+      unique: 'device-old',
+      env: '',
+      version: '',
+      url: '',
+    });
+
+    const spy = jest.spyOn(PageSpy.prototype, 'createNewConnection');
+
+    new PageSpy({
+      api: 'test-api.com',
+      unique: 'device-new',
+    });
 
     await sleep();
     expect(spy).toBeCalled();

@@ -42,7 +42,7 @@ describe('Im in the right env', () => {
 
 describe('new PageSpy([config])', () => {
   it('Auto detect config by parsing `document.currentScript.src`', () => {
-    sdk = new SDK();
+    sdk = new SDK({ offline: true });
 
     // The config value inited from /tests/setup.ts
     const config = sdk.config.get();
@@ -61,7 +61,10 @@ describe('new PageSpy([config])', () => {
       enableSSL: true,
     };
 
-    sdk = new SDK(userCfg);
+    sdk = new SDK({
+      ...userCfg,
+      offline: true,
+    });
     const config = sdk.config.get();
     expect(config).toEqual(expect.objectContaining(userCfg));
   });
@@ -84,7 +87,7 @@ describe('new PageSpy([config])', () => {
       jest.spyOn(i.prototype, 'onInit').mockImplementation(onInitFn);
     });
 
-    sdk = new SDK();
+    sdk = new SDK({ offline: true });
     expect(onInitFn).toHaveBeenCalledTimes(INTERNAL_PLUGINS.length);
   });
 
@@ -150,7 +153,7 @@ describe('new PageSpy([config])', () => {
   it('Content load', async () => {
     const init = jest.spyOn(SDK.prototype as any, 'init');
 
-    new SDK();
+    new SDK({ offline: true });
 
     window.dispatchEvent(new Event('DOMContentLoaded'));
     expect(init).toHaveBeenCalled();
@@ -179,14 +182,17 @@ describe('new PageSpy([config])', () => {
       address: sdk.address,
       project: '--',
       title: '--',
+      unique: '',
+      url: '',
       env: '',
       version: '',
+      roomLogo: '',
       secret: '',
       useSecret: false,
     });
   });
 
-  it('Create room request carries env and version', async () => {
+  it('Create room request carries unique env version url and roomLogo', async () => {
     const fetchSpy = jest.spyOn(global, 'fetch').mockResolvedValue({
       json: async () => ({
         data: {
@@ -200,8 +206,11 @@ describe('new PageSpy([config])', () => {
       api: 'custom-server.com',
       clientOrigin: 'https://debug-ui.com',
       enableSSL: false,
+      unique: 'device-browser-42',
       env: 'test',
       version: '1.2.3',
+      url: 'https://app.example.com/dashboard?tenant=42',
+      roomLogo: 'https://cdn.example.com/room-logo.png',
     });
 
     const request = new Request(config);
@@ -213,26 +222,44 @@ describe('new PageSpy([config])', () => {
       ),
       expect.any(Object),
     );
+    expect(String(fetchSpy.mock.calls[0]?.[0])).toContain(
+      'unique=device-browser-42',
+    );
     expect(String(fetchSpy.mock.calls[0]?.[0])).toContain('env=test');
     expect(String(fetchSpy.mock.calls[0]?.[0])).toContain('version=1.2.3');
+    expect(String(fetchSpy.mock.calls[0]?.[0])).toContain(
+      encodeURIComponent('https://app.example.com/dashboard?tenant=42'),
+    );
+    expect(String(fetchSpy.mock.calls[0]?.[0])).toContain(
+      encodeURIComponent('https://cdn.example.com/room-logo.png'),
+    );
   });
 
-  it('Update room info should merge env and version', () => {
+  it('Update room info should merge unique env version url and roomLogo', () => {
     sdk = new SDK({
+      unique: 'device-before',
       env: 'dev',
       version: '1.0.0',
+      url: 'https://before.example.com',
+      roomLogo: 'https://cdn.example.com/logo-before.png',
       offline: true,
     });
 
     sdk.updateRoomInfo({
+      unique: 'device-after',
       env: 'prod',
       version: '2.0.0',
+      url: 'https://after.example.com/path',
+      roomLogo: 'https://cdn.example.com/logo-after.png',
     });
 
     expect(sdk.config.get()).toEqual(
       expect.objectContaining({
+        unique: 'device-after',
         env: 'prod',
         version: '2.0.0',
+        url: 'https://after.example.com/path',
+        roomLogo: 'https://cdn.example.com/logo-after.png',
       }),
     );
   });
@@ -245,6 +272,8 @@ describe('new PageSpy([config])', () => {
         address: 'xxx',
         project: '--',
         title: '--',
+        unique: '',
+        url: '',
         env: '',
         version: '',
         secret: '',
@@ -259,13 +288,81 @@ describe('new PageSpy([config])', () => {
     expect(spy).toBeCalled();
   });
 
+  it('Will create a new room when cached url differs', async () => {
+    jest.spyOn(Request.prototype, 'createRoom').mockResolvedValue({
+      name: 'xxxx-name',
+      address: 'xxxx-address',
+      roomUrl: 'wss://xxxx-url',
+    });
+    sessionStorage.setItem(
+      ROOM_SESSION_KEY,
+      JSON.stringify({
+        address: 'xxx',
+        project: '--',
+        title: '--',
+        unique: '',
+        url: 'https://old.example.com',
+        env: '',
+        version: '',
+        secret: '',
+        useSecret: false,
+      }),
+    );
+
+    const createNewConnection = jest.spyOn(
+      SDK.prototype as any,
+      'createNewConnection',
+    );
+
+    new SDK({
+      url: 'https://new.example.com',
+    });
+    await sleep();
+
+    expect(createNewConnection).toBeCalled();
+  });
+
+  it('Will create a new room when cached unique differs', async () => {
+    jest.spyOn(Request.prototype, 'createRoom').mockResolvedValue({
+      name: 'xxxx-name',
+      address: 'xxxx-address',
+      roomUrl: 'wss://xxxx-url',
+    });
+    sessionStorage.setItem(
+      ROOM_SESSION_KEY,
+      JSON.stringify({
+        address: 'xxx',
+        project: '--',
+        title: '--',
+        unique: 'device-old',
+        url: '',
+        env: '',
+        version: '',
+        secret: '',
+        useSecret: false,
+      }),
+    );
+
+    const createNewConnection = jest.spyOn(
+      SDK.prototype as any,
+      'createNewConnection',
+    );
+
+    new SDK({
+      unique: 'device-new',
+    });
+    await sleep();
+
+    expect(createNewConnection).toBeCalled();
+  });
+
   it('Will get the same instance with duplicate init', () => {
     expect(SDK.instance).toBe(null);
 
     // 1st init
-    const ins1 = new SDK();
+    const ins1 = new SDK({ offline: true });
     // 2nd init
-    const ins2 = new SDK();
+    const ins2 = new SDK({ offline: true });
 
     expect(ins1).toBe(ins2);
   });

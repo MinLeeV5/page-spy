@@ -43,14 +43,27 @@ export default class Request {
   }
 
   createRoom() {
-    const { project, title, env, version, useSecret, secret } = this.config;
+    const {
+      project,
+      title,
+      unique,
+      url,
+      env,
+      version,
+      roomLogo,
+      useSecret,
+      secret,
+    } = this.config;
     const scheme = this.getScheme();
     const query = joinQuery({
       name: navigator.userAgent,
       group: project,
       title,
+      unique,
+      url,
       env,
       version,
+      roomLogo,
     });
     return fetch(`${scheme[0]}${this.base}/api/v1/room/create?${query}`, {
       method: 'POST',

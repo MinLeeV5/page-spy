@@ -5,6 +5,8 @@ import { Toast } from './toast';
 export interface UpdateConfig {
   title?: string;
   project?: string;
+  unique?: string;
+  url?: string;
   env?: 'dev' | 'test' | 'uat' | 'prod';
   version?: string;
 }

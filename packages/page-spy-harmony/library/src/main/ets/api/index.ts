@@ -45,7 +45,7 @@ export default class Request {
   }
 
   async createRoom() {
-    const { project, title } = this.config;
+    const { project, title, unique, url: pageUrl } = this.config;
 
     const scheme = this.getScheme();
     const query = joinQuery({
@@ -53,6 +53,8 @@ export default class Request {
       name: Client.getName(),
       group: project,
       title,
+      unique,
+      url: pageUrl,
     });
     const httpClient = http.createHttp();
 

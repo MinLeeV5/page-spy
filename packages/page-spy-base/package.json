@@ -1,9 +1,9 @@
 {
   "name": "@lastos/page-spy-base",
-  "version": "2.2.4",
+  "version": "2.2.6",
   "description": "The common utils of PageSpy.",
   "dependencies": {
-    "@lastos/page-spy-types": "^2.2.4",
+    "@lastos/page-spy-types": "^2.2.5",
     "zod": "^3.24.2"
   },
   "license": "MIT",

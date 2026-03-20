@@ -153,7 +153,8 @@ export abstract class SocketStoreBase {
 
   updateRoomInfo() {
     if (this.getPageSpyConfig) {
-      const { project, title, env, version } = this.getPageSpyConfig();
+      const { project, title, unique, url, env, version, roomLogo } =
+        this.getPageSpyConfig();
       const name = this.getClient?.().getName();
       this.send(
         {
@@ -166,8 +167,11 @@ export abstract class SocketStoreBase {
                 title,
                 name,
                 group: project,
+                unique,
+                url,
                 env,
                 version,
+                roomLogo,
               },
             },
           },

@@ -1,7 +1,7 @@
 export const joinQuery = (args: Record<string, unknown>) => {
   const arr: string[] = [];
   Object.entries(args).forEach(([k, v]) => {
-    arr.push(`${k}=${v}`);
+    arr.push(`${encodeURIComponent(k)}=${encodeURIComponent(String(v))}`);
   });
   return arr.join('&');
 };

@@ -37,6 +37,17 @@ const baseSchema = z
     title: z.string().min(1, 'Missing value'),
 
     /**
+     * Custom abstract unique identity used for grouping/filtering,
+     * such as user id, device id, or session id.
+     */
+    unique: z.string(),
+
+    /**
+     * Custom page url used for room display and filtering.
+     */
+    url: z.string(),
+
+    /**
      * Custom deployment environment used for room filtering.
      */
     env: roomEnvSchema.or(z.literal('')),
@@ -45,6 +56,11 @@ const baseSchema = z
      * Custom application version used for room filtering.
      */
     version: z.string(),
+
+    /**
+     * Custom business logo used for room display and identification.
+     */
+    roomLogo: z.string(),
 
     /**
      * Specify the server <scheme> manually.
@@ -151,8 +167,11 @@ export abstract class ConfigBase<C extends InitConfigBase> {
       api: '',
       project: '--',
       title: '--',
+      unique: '',
+      url: '',
       env: '',
       version: '',
+      roomLogo: '',
       enableSSL: true,
       messageCapacity: 1000,
       useSecret: false,

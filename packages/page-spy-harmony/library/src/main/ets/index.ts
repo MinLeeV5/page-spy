@@ -77,8 +77,20 @@ class PageSpy {
     if (!roomCache) {
       await this.createNewConnection();
     } else {
-      const { name, address, roomUrl, project: prev } = roomCache;
-      if (config.project !== prev || roomUrl.includes(config.api) === false) {
+      const {
+        name,
+        address,
+        roomUrl,
+        project: prev,
+        unique: prevUnique = '',
+        url: prevUrl = '',
+      } = roomCache;
+      if (
+        config.project !== prev ||
+        config.unique !== prevUnique ||
+        config.url !== prevUrl ||
+        roomUrl.includes(config.api) === false
+      ) {
         await this.createNewConnection();
       } else {
         this.name = name;
@@ -119,13 +131,15 @@ class PageSpy {
 
   async saveSession() {
     const { name, address, roomUrl, config } = this;
-    const { useSecret, secret, project, title } = config.get();
+    const { useSecret, secret, project, title, unique, url } = config.get();
     const roomInfo: RoomInfo = {
       name,
       address,
       roomUrl,
       project,
       title,
+      unique,
+      url,
       useSecret,
       secret,
     };
@@ -157,17 +171,25 @@ class PageSpy {
     PageSpy.instance = null;
   }
 
-  updateRoomInfo(obj: Pick<UpdateConfig, 'project' | 'title'>) {
+  updateRoomInfo(
+    obj: Pick<UpdateConfig, 'project' | 'title' | 'unique' | 'url'>,
+  ) {
     if (!obj) {
       return;
     }
 
-    const { project, title } = obj;
+    const { project, title, unique, url } = obj;
     if (project) {
       this.config.set('project', String(project));
     }
     if (title) {
       this.config.set('title', String(title));
+    }
+    if (unique !== undefined) {
+      this.config.set('unique', String(unique));
+    }
+    if (url !== undefined) {
+      this.config.set('url', String(url));
     }
     socketStore.updateRoomInfo();
   }

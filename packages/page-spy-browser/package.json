@@ -1,6 +1,6 @@
 {
   "name": "@lastos/page-spy-browser",
-  "version": "2.2.10",
+  "version": "2.2.12",
   "description": "A developer tool for debugging remote web page.",
   "license": "MIT",
   "main": "dist/iife/index.min.js",
@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.0",
-    "@lastos/page-spy-base": "^2.2.4",
-    "@lastos/page-spy-types": "^2.2.4",
+    "@lastos/page-spy-base": "^2.2.6",
+    "@lastos/page-spy-types": "^2.2.5",
     "copy-to-clipboard": "^3.3.1",
     "iseedeadpeople": "^1.0.0"
   },

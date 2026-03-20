@@ -39,20 +39,33 @@ export default class Request {
   }
 
   createRoom() {
-    const { enableSSL, project, title, env, version, useSecret, secret } =
-      this.config.get();
+    const {
+      enableSSL,
+      project,
+      title,
+      unique,
+      url,
+      env,
+      version,
+      roomLogo,
+      useSecret,
+      secret,
+    } = this.config.get();
     const scheme = getScheme(enableSSL);
     const device = this.client.getName();
 
     const query = joinQuery({
       group: project,
       title,
+      unique,
+      url,
       env,
       version,
+      roomLogo,
       // TODO putting all device info (or ua) in "name" is not a good practice.
       // this should be changed in next main version.
       // the backend support custom field in queries.
-      name: encodeURIComponent(device),
+      name: device,
     });
 
     return promisifyMPApi(getMPSDK().request<TResponse<TCreateRoom>>)({

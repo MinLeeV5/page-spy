@@ -45,8 +45,11 @@ import WebSocketPlugin from './plugins/network/websocket';
 type UpdateConfig = {
   title?: string;
   project?: string;
+  unique?: string;
+  url?: string;
   env?: 'dev' | 'test' | 'uat' | 'prod';
   version?: string;
+  roomLogo?: string;
 };
 
 class PageSpy {
@@ -207,7 +210,16 @@ class PageSpy {
 
       const config = this.config.get();
 
-      return ['project', 'title', 'env', 'version', 'useSecret'].some(
+      return [
+        'project',
+        'title',
+        'unique',
+        'url',
+        'env',
+        'version',
+        'roomLogo',
+        'useSecret',
+      ].some(
         (key) =>
           (cache[key] ?? '') !==
           ((config[key as keyof InitConfig] as string | boolean | undefined) ??
@@ -257,14 +269,26 @@ class PageSpy {
   }
 
   private saveSession() {
-    const { project, title, env, version, useSecret, secret } =
-      this.config.get();
+    const {
+      project,
+      title,
+      unique,
+      url,
+      env,
+      version,
+      roomLogo,
+      useSecret,
+      secret,
+    } = this.config.get();
     const roomInfo = JSON.stringify({
       address: this.address,
       project,
       title,
+      unique,
+      url,
       env,
       version,
+      roomLogo,
       useSecret,
       secret,
     });
@@ -472,7 +496,7 @@ class PageSpy {
   public updateRoomInfo(obj: UpdateConfig) {
     if (!obj) return;
 
-    const { project, title, env, version } = obj;
+    const { project, title, unique, url, env, version, roomLogo } = obj;
     if (project) {
       this.config.set('project', String(project));
       const node = document.querySelector('.page-spy-project');
@@ -487,11 +511,20 @@ class PageSpy {
         node.textContent = String(title);
       }
     }
+    if (unique !== undefined) {
+      this.config.set('unique', String(unique));
+    }
+    if (url !== undefined) {
+      this.config.set('url', String(url));
+    }
     if (env !== undefined) {
       this.config.set('env', String(env) as InitConfig['env']);
     }
     if (version !== undefined) {
       this.config.set('version', String(version));
+    }
+    if (roomLogo !== undefined) {
+      this.config.set('roomLogo', String(roomLogo));
     }
 
     socketStore.updateRoomInfo();

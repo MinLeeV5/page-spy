@@ -53,6 +53,8 @@ export type UpdateConfig = {
   title?: string;
   project?: string;
   name?: string;
+  unique?: string;
+  url?: string;
 };
 
 // 封装不同平台的 socket
@@ -161,7 +163,7 @@ export abstract class SocketStoreBase {
 
   updateRoomInfo() {
     if (this.getPageSpyConfig) {
-      const { project, title } = this.getPageSpyConfig();
+      const { project, title, unique, url } = this.getPageSpyConfig();
       const name = Client.getName();
 
       this.send(
@@ -175,6 +177,8 @@ export abstract class SocketStoreBase {
                 title,
                 name,
                 group: project,
+                unique,
+                url,
               },
             },
           },

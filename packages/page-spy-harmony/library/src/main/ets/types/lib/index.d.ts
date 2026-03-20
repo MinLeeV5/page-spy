@@ -28,6 +28,17 @@ export interface InitConfigBase {
   title?: string;
 
   /**
+   * Custom abstract unique identity used for grouping/filtering,
+   * such as user id, device id, or session id.
+   */
+  unique?: string;
+
+  /**
+   * Custom page url used for room display and filtering.
+   */
+  url?: string;
+
+  /**
    * Specify the server <scheme> manually.
    * - false: sdk will use ['http://', 'ws://'];
    * - true: sdk will use ['https://', 'wss://'];

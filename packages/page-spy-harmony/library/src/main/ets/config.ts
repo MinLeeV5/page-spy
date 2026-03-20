@@ -10,6 +10,8 @@ export class Config extends ConfigBase<InitConfig> {
       api: '',
       project: 'default',
       title: '--',
+      unique: '',
+      url: '',
       enableSSL: true,
       disabledPlugins: [],
       axios: null,
